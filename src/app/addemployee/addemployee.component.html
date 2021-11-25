@@ -1,0 +1,94 @@
+<body>
+<div class="form-content">
+    <form [formGroup]='addemployeeForm' class="form">
+        <!-- <form class="form" [formGroup]="employeeFormGroup" (ngSubmit)="onSubmit()"> -->
+        <div class="row mb-3">Employee Payroll Form</div>
+        <div class="row-content">
+            <label for="formGroupExampleInput" class="col-form-label col-sm-2 pt-0">Name</label>
+             <input [class.is-invalid]="addemployeeForm.get('name')?.invalid && addemployeeForm.get('name').touched"
+                type="text" formControlName="name" class="form-control" id="formGroupExampleInput"
+                placeholder="Enter fullname...">
+             <!-- <small [class.d-none]="addemployeeForm.get('name')?.valid || addemployeeForm.get('name').untouched" class="text-danger">Name is required</small> --> 
+             <div *ngIf="addemployeeForm.get('name')?.invalid && addemployeeForm.get('name').touched">
+                <small *ngIf="addemployeeForm.get('name').errors?.['required']" class="text-danger">Name is
+                    required</small>
+                <small *ngIf="addemployeeForm.get('name').errors?.['minLength']" class="text-danger">Name must be at
+                    least 3 characters</small>
+                
+
+
+
+            </div>
+        </div>
+
+        <div class="row-content">
+            <!-- <fieldset class="row mb-3"> -->
+            <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+            <div class="row-content">
+                <div class="form-check">
+                    <input class="form-check-input" formControlName="gender" type="radio" name="gender" id="gridRadios1"
+                        value="Male" checked>
+                    <label class="col-form-label col-sm-2 pt-0" for="gridRadios1">
+                        MALE
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" formControlName="gender" type="radio" name="gender" id="gridRadios1"
+                        value="Female">
+                    <label class="col-form-label col-sm-2 pt-0" for="gridRadios1">
+                        FEMALE
+                    </label>
+                </div>
+
+            </div>
+            <!-- </fieldset> -->
+        </div>
+
+
+        <div class="row-content">
+            <label for="formGroupExampleInput3" class="col-form-label col-sm-2 pt-0">E-Mail</label>
+            <input type="email" formControlName="email" class="form-control" id="formGroupExampleInput2"
+                placeholder="Enter Valid Id...">
+        </div>
+
+        <!-----------------------------Salary-------------------------------->
+        <div class="row-content">
+            <label for="formGroupExampleInput" class="col-form-label col-sm-2 pt-0">Salary</label>
+            <input type="number" formControlName="salary" class="form-control" id="formGroupExampleInput"
+                placeholder="Enter salary...">
+        </div>
+
+        <!-----------------------------Contact-------------------------------->
+        <!-- <div class="row-content">
+            <label for="formGroupExampleInput" class="col-form-label col-sm-2 pt-0">Contact</label>
+            <input [class.is-invalid]="addemployeeForm.get('contact')?.invalid && addemployeeForm.get('contact').touched"
+             type="number" formControlName="contact" class="form-control" id="formGroupExampleInput"
+                placeholder="Enter valid number...">
+                <div *ngIf="addemployeeForm.contact.touched && addemployeeForm.contact.invalid" class="text-danger">  
+                   <small *ngIf="addemployeeForm.get('contact').errors?.['required']" class="text-danger">Contact is
+                    required</small>
+                <small *ngIf="addemployeeForm.get('name').errors?.['pattern']" class="text-danger"> Should be a valid 10 digit number</small>
+                </div>
+        </div> -->
+
+        <div class="row-content">
+            <label for="formGroupExampleInput" class="col-form-label col-sm-2 pt-0">Contact</label>
+            <input type="number" formControlName="contact" class="form-control" id="formGroupExampleInput"
+                placeholder="Enter 10 digit number...">
+        </div>
+       
+        <!------------------------------Actions------------------------------->
+        <div class="buttonParent">
+            <button type="button" (click)="onReset()" class="btn btn-secondary">Reset</button>
+            <button type="button" (click)="onSubmit()" class="btn btn-success">Submit</button>
+            <!-- <button type="button" class="btn btn-danger">Back</button> -->
+            <nav>
+                <a routerLink="/back" routerLinkActive="back-button">
+                    <button type="button" class="btn btn-danger">Back</button></a>
+            </nav>
+        </div>
+    </form>
+
+
+</div>
+</body>

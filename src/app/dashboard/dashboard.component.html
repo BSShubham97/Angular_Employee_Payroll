@@ -1,0 +1,47 @@
+
+ <div class="main-content">
+     <div class="header-content">
+    <div class="emp-detail-text">Employee Details
+    </div>
+  <nav>
+    <a routerLink="/add" routerLinkActive="add-button">
+        <button class="add-employee"><img src="assets/icons/add-24px.svg">Add Employee</button></a>
+  </nav>
+
+ 
+     </div>
+     
+     <table id="display" class="table">
+    
+        <thead>
+        <tr>
+          
+          <th scope="col">Name</th>
+          <th scope="col">Gender</th>
+          <th scope="col">E-Mail</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Contact</th>
+          <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let employees of employeepayrollList; let i=index">
+           
+            <td>{{employees.name}}</td>
+            <td>{{employees.gender}}</td>
+            <td>{{employees.email}}</td>
+            <td>{{employees.salary}}</td>
+            <td>{{employees.contact}}</td>
+            
+            <td>
+             <img class="delete-btn"id="1" (click)="remove(i)" alt="delete" src="assets/icons/delete-black-18dp.svg">
+             <img class="edit-btn" id="2" (click)="update(i)" alt="edit" src="assets/icons/create-black-18dp.svg">
+            </td>
+        </tr>
+        
+
+
+    </tbody>
+      </table>  
+     
+ 
