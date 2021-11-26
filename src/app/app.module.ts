@@ -14,9 +14,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import{MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips'; 
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import {MatDialogModule , MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { MatDialogRef } from '@angular/material/dialog'; 
   
 
 @NgModule({
@@ -40,7 +40,16 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatDialogModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: []
+    },
+    {
+      provide: MAT_DIALOG_DATA,
+      useValue: []
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
